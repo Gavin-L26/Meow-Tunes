@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Current;
 
+    public GameObject backMenuKeyboard, backMenuPS4, backMenuXbox;
     public GameObject winLevelUI;
     public PlayerInput playerInput;
     public GameObject winLevelReplayPS4, winLevelReplayKeyboard, winLevelReplayXbox;
@@ -74,9 +75,15 @@ public class UIManager : MonoBehaviour
             var gamepad = Gamepad.current;
             if (gamepad is XInputController || gamepad is SwitchProControllerHID)
             {
+                // back from menu
+                backMenuKeyboard.SetActive(false);
+                backMenuPS4.SetActive(false);
+                backMenuXbox.SetActive(true);
+                // win
                 winLevelReplayKeyboard.SetActive(false);
                 winLevelReplayPS4.SetActive(false);
                 winLevelReplayXbox.SetActive(true);
+                // lose
                 loseLevelReplayKeyboard.SetActive(false);
                 loseLevelReplayPS4.SetActive(false);
                 loseLevelReplayXbox.SetActive(true);
@@ -95,12 +102,18 @@ public class UIManager : MonoBehaviour
             }
             else
             {
+                // back from menu
+                backMenuKeyboard.SetActive(false);
+                backMenuPS4.SetActive(true);
+                backMenuXbox.SetActive(false);
+                // win
                 winLevelReplayKeyboard.SetActive(false);
-                winLevelReplayXbox.SetActive(false);
                 winLevelReplayPS4.SetActive(true);
+                winLevelReplayXbox.SetActive(false);
+                // lose
                 loseLevelReplayKeyboard.SetActive(false);
-                loseLevelReplayXbox.SetActive(false);
                 loseLevelReplayPS4.SetActive(true);
+                loseLevelReplayXbox.SetActive(false);
                 if (_tutorialScene)
                 {
                     // Tutorial sign PS4
@@ -117,12 +130,18 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            winLevelReplayXbox.SetActive(false);
-            winLevelReplayPS4.SetActive(false);
+            // back from menu
+            backMenuKeyboard.SetActive(true);
+            backMenuPS4.SetActive(false);
+            backMenuXbox.SetActive(false);
+            // win
             winLevelReplayKeyboard.SetActive(true);
-            loseLevelReplayXbox.SetActive(false);
-            loseLevelReplayPS4.SetActive(false);
+            winLevelReplayPS4.SetActive(false);
+            winLevelReplayXbox.SetActive(false);
+            // lose
             loseLevelReplayKeyboard.SetActive(true);
+            loseLevelReplayPS4.SetActive(false);
+            loseLevelReplayXbox.SetActive(false);
             if (_tutorialScene)
             {
                 // Tutorial sign keyboard

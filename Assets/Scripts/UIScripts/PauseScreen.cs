@@ -22,9 +22,14 @@ public class PauseScreen : MonoBehaviour
         {
             Cursor.visible = true;
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Current.HasGameEnded() && !CountdownManager.Current.countingDown)
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Current.HasGameEnded() 
+            && !CountdownManager.Current.countingDown && !GameManager.Current.IsGamePaused())
         {
-            PauseOrResume();
+            Pause();
+        } 
+        if (Input.GetKeyDown(KeyCode.Space) && GameManager.Current.IsGamePaused())
+        {
+            ResumeOrExitSettings();
         } 
     }
 
@@ -79,12 +84,21 @@ public class PauseScreen : MonoBehaviour
         Time.timeScale = 1f;
         GameManager.Current.BackToMainMenu();
     }
-    public void PauseOrResumeController(InputAction.CallbackContext context)
+    public void PauseController(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
             if (GameManager.Current.HasGameEnded()) return;
-            PauseOrResume();
+            if (!GameManager.Current.IsGamePaused()) Pause();
+        }
+    }
+
+    public void ResumeController(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (GameManager.Current.HasGameEnded()) return;
+            if (GameManager.Current.IsGamePaused()) ResumeOrExitSettings();
         }
     }
 
@@ -105,7 +119,7 @@ public class PauseScreen : MonoBehaviour
         _playerMovementScript.enabled = true;
     }
 
-    private void PauseOrResume()
+    private void ResumeOrExitSettings()
     {
         if (GameManager.Current.IsGamePaused() && !settingsMenuUI.activeInHierarchy)
         {
@@ -115,10 +129,6 @@ public class PauseScreen : MonoBehaviour
             SettingsMenu.current.BackToMainMenuOrPauseScreen();
             settingsMenuUI.SetActive(false);
             pauseMenuUI.SetActive(true);
-        }
-        else
-        {
-            Pause();
         }
     }
 
