@@ -10,7 +10,13 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Current;
 
-    public GameObject backMenuKeyboard, backMenuPS4, backMenuXbox;
+    // Back buttons for the different screens (Pause, Win, Lose) 
+    public static GameObject pauseMenuBackKeyboard, pauseMenuBackPS4, pauseMenuBackXbox;
+    public static GameObject winLevelBackKeyboard, winLevelBackPS4, winLevelBackXbox;
+    public static GameObject loseLevelBackKeyboard, loseLevelBackPS4, loseLevelBackXbox;
+    public GameObject[] keyboardBackButton = new GameObject[]{ pauseMenuBackKeyboard , winLevelBackKeyboard , loseLevelBackKeyboard };
+    public GameObject[] ps4BackButton = new GameObject[]{ pauseMenuBackPS4 , winLevelBackPS4 , loseLevelBackPS4 };
+    public GameObject[] xboxBackButton = new GameObject[]{ pauseMenuBackXbox , winLevelBackXbox , loseLevelBackXbox };
     public GameObject winLevelUI;
     public PlayerInput playerInput;
     public GameObject winLevelReplayPS4, winLevelReplayKeyboard, winLevelReplayXbox;
@@ -76,9 +82,12 @@ public class UIManager : MonoBehaviour
             if (gamepad is XInputController || gamepad is SwitchProControllerHID)
             {
                 // back from menu
-                backMenuKeyboard.SetActive(false);
-                backMenuPS4.SetActive(false);
-                backMenuXbox.SetActive(true);
+                for (int i = 0; i < 3; i++)
+                {
+                    ps4BackButton[i].SetActive(false);
+                    xboxBackButton[i].SetActive(true);
+                    keyboardBackButton[i].SetActive(false);
+                }
                 // win
                 winLevelReplayKeyboard.SetActive(false);
                 winLevelReplayPS4.SetActive(false);
@@ -103,9 +112,12 @@ public class UIManager : MonoBehaviour
             else
             {
                 // back from menu
-                backMenuKeyboard.SetActive(false);
-                backMenuPS4.SetActive(true);
-                backMenuXbox.SetActive(false);
+                for (int i = 0; i < 3; i++)
+                {
+                    ps4BackButton[i].SetActive(true);
+                    xboxBackButton[i].SetActive(false);
+                    keyboardBackButton[i].SetActive(false);
+                }
                 // win
                 winLevelReplayKeyboard.SetActive(false);
                 winLevelReplayPS4.SetActive(true);
@@ -131,9 +143,12 @@ public class UIManager : MonoBehaviour
         else
         {
             // back from menu
-            backMenuKeyboard.SetActive(true);
-            backMenuPS4.SetActive(false);
-            backMenuXbox.SetActive(false);
+            for (int i = 0; i < 3; i++)
+            {
+                ps4BackButton[i].SetActive(false);
+                xboxBackButton[i].SetActive(false);
+                keyboardBackButton[i].SetActive(true);
+            }
             // win
             winLevelReplayKeyboard.SetActive(true);
             winLevelReplayPS4.SetActive(false);
@@ -177,7 +192,7 @@ public class UIManager : MonoBehaviour
     {
         gameUI.SetActive(false);
         lostLevelUI.SetActive(true);
-
+        SetReplayActiveBasedOnInputMethod(CheckLastUpdatedInputMethod());
     }
 
     public void DisplayLoadingScreen()

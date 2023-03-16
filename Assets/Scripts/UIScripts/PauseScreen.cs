@@ -23,14 +23,17 @@ public class PauseScreen : MonoBehaviour
             Cursor.visible = true;
         }
         if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Current.HasGameEnded() 
-            && !CountdownManager.Current.countingDown && !GameManager.Current.IsGamePaused())
+            && !CountdownManager.Current.countingDown)
         {
-            Pause();
-        } 
-        if (Input.GetKeyDown(KeyCode.Space) && GameManager.Current.IsGamePaused())
-        {
-            ResumeOrExitSettings();
-        } 
+            if (!GameManager.Current.IsGamePaused())
+            {
+                Pause();
+            }
+            else if (GameManager.Current.IsGamePaused())
+            {
+                ResumeOrExitSettings();
+            }
+        }
     }
 
     public void Resume()
@@ -121,6 +124,7 @@ public class PauseScreen : MonoBehaviour
 
     private void ResumeOrExitSettings()
     {
+        if (!GameManager.Current.IsGamePaused() || GameManager.Current.HasGameEnded() || CountdownManager.Current.countingDown) return;
         if (GameManager.Current.IsGamePaused() && !settingsMenuUI.activeInHierarchy)
         {
             Resume();
