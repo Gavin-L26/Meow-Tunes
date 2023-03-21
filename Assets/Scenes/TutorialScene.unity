@@ -770,6 +770,8 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  arrows: []
+  _blinkWaitTime: 0
   laneNumber: 5
   spacingSize: 1.666667
 --- !u!4 &22304591
@@ -3178,6 +3180,8 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  arrows: []
+  _blinkWaitTime: 0
   laneNumber: 3
   spacingSize: 1.666667
 --- !u!4 &160308260
@@ -3241,12 +3245,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteRestriction: 2
   timeStamps: []
+  laneNums: 
   blinkOffset: 0.25
   blinkCooldown: 0.125
   prespawnWarningSeconds: 0
   TimeStamp: 0
   enableBlink: 0
   enableArrows: 1
+  perfectColor: {r: 0, g: 0.7647059, b: 0.11764706, a: 1}
+  niceColor: {r: 1, g: 0.8509804, b: 0.16470589, a: 1}
+  missColor: {r: 1, g: 0, b: 0, a: 1}
   blinkColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &164544098
 PrefabInstance:
@@ -17630,12 +17638,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteRestriction: 3
   timeStamps: []
+  laneNums: 
   blinkOffset: 0.25
   blinkCooldown: 0.125
   prespawnWarningSeconds: 0
   TimeStamp: 0
   enableBlink: 0
   enableArrows: 1
+  perfectColor: {r: 0, g: 0.7647059, b: 0.11764706, a: 1}
+  niceColor: {r: 1, g: 0.8509804, b: 0.16470589, a: 1}
+  missColor: {r: 1, g: 0, b: 0, a: 1}
   noteRestrictionRight: 1
   timeStampsRight: []
   jumpAction: {fileID: 162775319}
@@ -31326,6 +31338,8 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  arrows: []
+  _blinkWaitTime: 0
   laneNumber: 2
   spacingSize: 1.666667
 --- !u!4 &1563533518
@@ -32504,6 +32518,8 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  arrows: []
+  _blinkWaitTime: 0
   laneNumber: 4
   spacingSize: 1.666667
 --- !u!4 &1626550414
@@ -34419,12 +34435,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteRestriction: 4
   timeStamps: []
+  laneNums: 
   blinkOffset: 0.25
   blinkCooldown: 0.125
   prespawnWarningSeconds: 0
   TimeStamp: 0
   enableBlink: 0
   enableArrows: 1
+  perfectColor: {r: 0, g: 1, b: 0, a: 1}
+  niceColor: {r: 1, g: 1, b: 0, a: 1}
+  missColor: {r: 1, g: 0, b: 0, a: 1}
   blinkColor: {r: 0.6698113, g: 0.13585795, b: 0.13585795, a: 0}
 --- !u!1001 &1704851760
 PrefabInstance:
@@ -37360,7 +37380,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   playerHeight: 2
   playerWidth: 2
-  maxSlopeAngle: 40
   state: 0
 --- !u!114 &1828724621
 MonoBehaviour:
@@ -39301,6 +39320,8 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  arrows: []
+  _blinkWaitTime: 0
   laneNumber: 0
   spacingSize: 1.666667
 --- !u!4 &1953180307
@@ -41792,6 +41813,8 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  arrows: []
+  _blinkWaitTime: 0
   laneNumber: 6
   spacingSize: 1.666667
 --- !u!4 &2105224382
@@ -42120,6 +42143,8 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  arrows: []
+  _blinkWaitTime: 0
   laneNumber: 1
   spacingSize: 1.666667
 --- !u!4 &2122082842

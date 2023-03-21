@@ -1,4 +1,5 @@
 using Melanchall.DryWetMidi.Interaction;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class Lane : MonoBehaviour
     public GameObject checkpointPrefab;
     public GameObject arrowUpPrefab, arrowLeftPrefab, arrowRightPrefab, arrowDownPrefab;
     public List<Platform> platforms = new List<Platform>();
+    public List<GameObject> arrows = new List<GameObject>(); //List of arrows spawned in this lane
+    public float _blinkWaitTime;
     
     public int laneNumber;
     private float _oneEighthofBeat;
@@ -22,6 +25,7 @@ public class Lane : MonoBehaviour
     public void SpawnPlatformsAndFishTreats(IEnumerable<Note> array, float bpm)
     {
         _oneEighthofBeat = 1 / (bpm / 60f) / 2;
+        _blinkWaitTime = 1.0f;
         foreach (var note in array)
         {
             //Octave 1 is for player input
@@ -88,7 +92,7 @@ public class Lane : MonoBehaviour
         {
             _y += 2f;
         }
-        _z = (spawnTime / oneEighthofBeat) * spacingSize - 2f;
+        _z = (spawnTime / oneEighthofBeat) * spacingSize - 3.5f;
         var position = new Vector3(X, _y, _z);
         // Debug.Log(spawn_time);
         newFishtreat.transform.localPosition = position;
@@ -103,6 +107,7 @@ public class Lane : MonoBehaviour
         var z = (spawnTime / oneEighthofBeat) * spacingSize - 3.5f;
         var position = new Vector3((X + newArrowPosition.x), y, z);
         newArrow.transform.localPosition = position;
+        arrows.Add(newArrow);
     }
 
     private GameObject GetArrowPrefab(string direction)
@@ -120,5 +125,15 @@ public class Lane : MonoBehaviour
         }
 
         return null;
+    }
+
+
+    public IEnumerator ArrowBlinkDelay(int index, Color blinkColor)
+    {
+        Color previousColor = arrows[index].GetComponent<Renderer>().material.GetColor("_BaseColor");
+        arrows[index].GetComponent<Renderer>().material.SetColor("_BaseColor", blinkColor);
+        yield return new WaitForSeconds(_blinkWaitTime);
+        arrows[index].GetComponent<Renderer>().material.SetColor("_BaseColor", previousColor);
+        yield return null;
     }
 }

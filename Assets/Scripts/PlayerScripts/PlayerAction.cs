@@ -9,6 +9,7 @@ public abstract class PlayerAction : MonoBehaviour
     
     public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction;
     public List<double> timeStamps = new List<double>();
+    public List<int> laneNums = new List<int>(); //the lane each note is on
     public double blinkOffset;
     public double blinkCooldown;
     protected double PreviousBlink;
@@ -21,6 +22,11 @@ public abstract class PlayerAction : MonoBehaviour
     protected double AudioTime;
     public bool enableBlink;
     public bool enableArrows;
+    protected Lane[] allLanes;
+    
+    public Color perfectColor  = Color.green;
+    public Color niceColor = new Color(1.0f, 1.0f, 0f); //Yellow;
+    public Color missColor = Color.red;
 
     protected virtual void Start() {
         PerfectMarginOfError = MusicPlayer.Current.perfectMarginOfError;
@@ -52,6 +58,7 @@ public abstract class PlayerAction : MonoBehaviour
         {
             //Perfect
             Hit();
+            arrowBlink(inputIndex, perfectColor);
             print($"Hit on {inputIndex} note - time: {timeStamp} audio time {AudioTime}");
             inputIndex++;
         }
@@ -59,6 +66,7 @@ public abstract class PlayerAction : MonoBehaviour
         {
             //Nice
             Inaccurate();
+            arrowBlink(inputIndex,niceColor);
             print(
                 $"Hit inaccurate on {inputIndex} note with {Math.Abs(AudioTime - timeStamp)} delay - time: {timeStamp} audio time {AudioTime}");
             inputIndex++;
@@ -66,6 +74,7 @@ public abstract class PlayerAction : MonoBehaviour
         else{
             //Oops
             Miss();
+            arrowBlink(inputIndex, missColor);
             print($"Missed {inputIndex} note - time: {timeStamp} audio time {AudioTime}");
 
             if(AudioTime - timeStamp > NiceMarginOfError){
@@ -92,6 +101,8 @@ public abstract class PlayerAction : MonoBehaviour
                 var heightLevel = velocityAsInt / 10 % 10;
                 var oneEighthofBeat = 1 / (MusicPlayer.Current.bpm / 60f) / 2;
                 lanes[lane].SpawnArrow((float)spawnTime, heightLevel, direction, oneEighthofBeat);
+
+                laneNums.Add(lane);
             }
         }
         return curTimeStamps;
@@ -126,6 +137,11 @@ public abstract class PlayerAction : MonoBehaviour
     private void Blink(Color blinkColor)
     {
         PlatformManager.current.InvokeBlink(blinkColor);
+    }
+
+    private void arrowBlink(int inputIndex, Color blinkColor)
+    {
+        StartCoroutine(allLanes[laneNums[inputIndex]].ArrowBlinkDelay(inputIndex, blinkColor));
     }
 
     public abstract void TriggerScoreCalculation(InputAction.CallbackContext context);

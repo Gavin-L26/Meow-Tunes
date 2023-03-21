@@ -45,6 +45,7 @@ public class PlayerSideAction : PlayerAction
 
     public override void SetTimeStamps(IEnumerable<Note> array, Lane[] lanes)
     {
+        allLanes = lanes;
         foreach (var note in array)
         {
             timeStamps = AddNoteToTimeStamp(note, noteRestriction, timeStamps, lanes, "left");

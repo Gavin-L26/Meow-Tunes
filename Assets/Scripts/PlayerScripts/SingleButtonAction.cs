@@ -20,6 +20,7 @@ public class SingleButtonAction : PlayerAction
     
     public override void SetTimeStamps(IEnumerable<Note> array, Lane[] lanes)
     {
+        allLanes = lanes;
         foreach (var note in array)
         {
             if (noteRestriction == NoteName.E)
