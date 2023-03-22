@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84a92b25f83d49b9bc132d206b370281, type: 3}
-  m_Name: enter_button
+  m_Name: button_xbox_digital_b_11
   m_EditorClassIdentifier: 
-  hashCode: -158561055
-  material: {fileID: 8459127393756590262}
+  hashCode: 613056579
+  material: {fileID: 4000243435616212897}
   materialHashCode: 0
   m_Version: 1.1.0
   m_FaceInfo:
@@ -37,33 +37,33 @@ MonoBehaviour:
     m_StrikethroughOffset: 0
     m_StrikethroughThickness: 0
     m_TabWidth: 0
-  spriteSheet: {fileID: 2800000, guid: 825c61f55866c264698575f9fbaebe64, type: 3}
+  spriteSheet: {fileID: 2800000, guid: f615bc6254684fe42a7bc820d269b233, type: 3}
   m_SpriteCharacterTable:
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 0
     m_Scale: 1
-    m_Name: enter_button
-    m_HashCode: -158561055
+    m_Name: button_xbox_digital_b_11
+    m_HashCode: 613056579
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:
-      m_Width: 220
-      m_Height: 254
-      m_HorizontalBearingX: -110
-      m_HorizontalBearingY: 127
-      m_HorizontalAdvance: 220
+      m_Width: 480
+      m_Height: 480
+      m_HorizontalBearingX: -240
+      m_HorizontalBearingY: 240
+      m_HorizontalAdvance: 480
     m_GlyphRect:
       m_X: 0
       m_Y: 0
-      m_Width: 220
-      m_Height: 254
+      m_Width: 480
+      m_Height: 480
     m_Scale: 1
     m_AtlasIndex: 0
-    sprite: {fileID: 21300000, guid: 825c61f55866c264698575f9fbaebe64, type: 3}
+    sprite: {fileID: 21300000, guid: f615bc6254684fe42a7bc820d269b233, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []
---- !u!21 &8459127393756590262
+--- !u!21 &4000243435616212897
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 1
@@ -84,7 +84,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 825c61f55866c264698575f9fbaebe64, type: 3}
+        m_Texture: {fileID: 2800000, guid: f615bc6254684fe42a7bc820d269b233, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []

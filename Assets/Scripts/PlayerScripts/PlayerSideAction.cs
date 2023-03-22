@@ -55,7 +55,7 @@ public class PlayerSideAction : PlayerAction
     // Update is called once per frame
     public override void Update()
     {
-        if (Time.timeSinceLevelLoad > 5 && !GameManager.Current.IsGamePaused())
+        if (Time.timeSinceLevelLoad > 5 && !GameManager.Current.IsGamePaused() && !CountdownManager.Current.countingDown)
         {
             AudioTime = MusicPlayer.Current.GetAudioSourceTime() - (MusicPlayer.Current.inputDelayInMilliseconds / 1000.0);
             if (enableBlink)
