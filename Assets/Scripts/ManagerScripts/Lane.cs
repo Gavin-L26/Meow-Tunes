@@ -134,7 +134,6 @@ public class Lane : MonoBehaviour
         return null;
     }
 
-
     private void AddNewArrow(GameObject arrow, string direction)
     {
         switch (direction)
@@ -154,8 +153,7 @@ public class Lane : MonoBehaviour
         }
     }
 
-
-    public IEnumerator ArrowBlinkDelay(Color blinkColor, string direction)
+    public IEnumerator ArrowBlinkDelay(Color blinkColor, string direction, bool increment)
     {
         Color previousColor;
         GameObject arrow;
@@ -165,6 +163,11 @@ public class Lane : MonoBehaviour
         arrow.GetComponent<Renderer>().material.SetColor("_BaseColor", blinkColor);
         yield return new WaitForSeconds(_blinkWaitTime);
         arrow.GetComponent<Renderer>().material.SetColor("_BaseColor", previousColor);
+
+        //Increment arrow index only the note is hit at the correct time or after it
+        if (increment){
+            IncrementArrowIndex(direction);
+        }
         yield return null;
     }
 
@@ -172,15 +175,33 @@ public class Lane : MonoBehaviour
         switch (direction)
         {
             case "up":
-                return upArrows[currentUpArrowIndex++];
+                return upArrows[currentUpArrowIndex];
             case "down":
-                return downArrows[currentDownArrowIndex++];
+                return downArrows[currentDownArrowIndex];
             case "left":
-                return leftArrows[currentLeftArrowIndex++];
+                return leftArrows[currentLeftArrowIndex];
             case "right":
-                return rightArrows[currentRightArrowIndex++];
+                return rightArrows[currentRightArrowIndex];
         }
         return null;
+    }
+
+    private void IncrementArrowIndex(string direction){
+        switch (direction)
+        {
+            case "up":
+                currentUpArrowIndex++;
+                break;
+            case "down":
+                currentDownArrowIndex++;
+                break;
+            case "left":
+                currentLeftArrowIndex++;
+                break;
+            case "right":
+                currentRightArrowIndex++;
+                break;
+        }
     }
 
     public int[] GetLaneIndexes(){

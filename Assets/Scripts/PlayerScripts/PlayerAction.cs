@@ -59,7 +59,7 @@ public abstract class PlayerAction : MonoBehaviour
         {
             //Perfect
             Hit();
-            arrowBlink(inputIndex, perfectColor, laneNumsChoice, direction);
+            arrowBlink(inputIndex, perfectColor, laneNumsChoice, direction, true);
             print($"Hit on {inputIndex} note - time: {timeStamp} audio time {AudioTime}");
             inputIndex++;
         }
@@ -67,7 +67,7 @@ public abstract class PlayerAction : MonoBehaviour
         {
             //Nice
             Inaccurate();
-            arrowBlink(inputIndex, niceColor, laneNumsChoice, direction);
+            arrowBlink(inputIndex, niceColor, laneNumsChoice, direction, true);
             print(
                 $"Hit inaccurate on {inputIndex} note with {Math.Abs(AudioTime - timeStamp)} delay - time: {timeStamp} audio time {AudioTime}");
             inputIndex++;
@@ -75,11 +75,13 @@ public abstract class PlayerAction : MonoBehaviour
         else{
             //Oops
             Miss();
-            arrowBlink(inputIndex, missColor, laneNumsChoice, direction);
             print($"Missed {inputIndex} note - time: {timeStamp} audio time {AudioTime}");
 
-            if(AudioTime - timeStamp > NiceMarginOfError){
+            if(AudioTime - timeStamp > NiceMarginOfError){ //After the note has passed
+                arrowBlink(inputIndex, missColor, laneNumsChoice, direction, true);
                 inputIndex++;
+            }else{ //before the note has passed
+                arrowBlink(inputIndex, missColor, laneNumsChoice, direction, false);
             }
         }
         return inputIndex;
@@ -119,9 +121,9 @@ public abstract class PlayerAction : MonoBehaviour
         PlatformManager.current.InvokeBlink(blinkColor);
     }
 
-    private void arrowBlink(int inputIndex, Color blinkColor, List<int> laneNumsChoice, string direction)
+    private void arrowBlink(int inputIndex, Color blinkColor, List<int> laneNumsChoice, string direction, bool increment)
     {
-        StartCoroutine(allLanes[laneNumsChoice[inputIndex]].ArrowBlinkDelay(blinkColor, direction));
+        StartCoroutine(allLanes[laneNumsChoice[inputIndex]].ArrowBlinkDelay(blinkColor, direction, increment));
     }
 
     public abstract void TriggerScoreCalculation(InputAction.CallbackContext context);
