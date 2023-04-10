@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using Melanchall.DryWetMidi.Interaction;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,8 +13,11 @@ public class Lane : MonoBehaviour
     public GameObject checkpointPrefab;
     public GameObject arrowUpPrefab, arrowLeftPrefab, arrowRightPrefab, arrowDownPrefab;
     public List<Platform> platforms = new List<Platform>();
-    public List<GameObject> arrows = new List<GameObject>(); //List of arrows spawned in this lane
-    public float _blinkWaitTime;
+    public List<GameObject> upArrows = new List<GameObject>(); //List of up arrows spawned in this lane
+    public List<GameObject> downArrows = new List<GameObject>(); //List of down arrows spawned in this lane
+    public List<GameObject> leftArrows = new List<GameObject>(); //List of left arrows spawned in this lane
+    public List<GameObject> rightArrows = new List<GameObject>(); //List of right arrows spawned in this lane
+    private float _blinkWaitTime = 0.5f;
     
     public int laneNumber;
     private float _oneEighthofBeat;
@@ -21,11 +25,14 @@ public class Lane : MonoBehaviour
     
     private const float X = 0F;
     private float _y, _z;
+    private int currentUpArrowIndex = 0;
+    private int currentDownArrowIndex = 0;
+    private int currentLeftArrowIndex = 0;
+    private int currentRightArrowIndex = 0;
 
     public void SpawnPlatformsAndFishTreats(IEnumerable<Note> array, float bpm)
     {
         _oneEighthofBeat = 1 / (bpm / 60f) / 2;
-        _blinkWaitTime = 1.0f;
         foreach (var note in array)
         {
             //Octave 1 is for player input
@@ -107,7 +114,7 @@ public class Lane : MonoBehaviour
         var z = (spawnTime / oneEighthofBeat) * spacingSize - 3.5f;
         var position = new Vector3((X + newArrowPosition.x), y, z);
         newArrow.transform.localPosition = position;
-        arrows.Add(newArrow);
+        AddNewArrow(newArrow, direction);
     }
 
     private GameObject GetArrowPrefab(string direction)
@@ -128,12 +135,62 @@ public class Lane : MonoBehaviour
     }
 
 
-    public IEnumerator ArrowBlinkDelay(int index, Color blinkColor)
+    private void AddNewArrow(GameObject arrow, string direction)
     {
-        Color previousColor = arrows[index].GetComponent<Renderer>().material.GetColor("_BaseColor");
-        arrows[index].GetComponent<Renderer>().material.SetColor("_BaseColor", blinkColor);
+        switch (direction)
+        {
+            case "up":
+                upArrows.Add(arrow);
+                break;
+            case "down":
+                downArrows.Add(arrow);
+                break;
+            case "left":
+                leftArrows.Add(arrow);
+                break;
+            case "right":
+                rightArrows.Add(arrow);
+                break;
+        }
+    }
+
+
+    public IEnumerator ArrowBlinkDelay(Color blinkColor, string direction)
+    {
+        Color previousColor;
+        GameObject arrow;
+
+        arrow= GetArrowWithIndex(direction);
+        previousColor = arrow.GetComponent<Renderer>().material.GetColor("_BaseColor");
+        arrow.GetComponent<Renderer>().material.SetColor("_BaseColor", blinkColor);
         yield return new WaitForSeconds(_blinkWaitTime);
-        arrows[index].GetComponent<Renderer>().material.SetColor("_BaseColor", previousColor);
+        arrow.GetComponent<Renderer>().material.SetColor("_BaseColor", previousColor);
         yield return null;
+    }
+
+    private GameObject GetArrowWithIndex(string direction){
+        switch (direction)
+        {
+            case "up":
+                return upArrows[currentUpArrowIndex++];
+            case "down":
+                return downArrows[currentDownArrowIndex++];
+            case "left":
+                return leftArrows[currentLeftArrowIndex++];
+            case "right":
+                return rightArrows[currentRightArrowIndex++];
+        }
+        return null;
+    }
+
+    public int[] GetLaneIndexes(){
+        return new int[]{currentUpArrowIndex, currentDownArrowIndex, currentLeftArrowIndex, currentRightArrowIndex};
+    }
+
+    public void SetLaneIndexes(int[] indexes){
+        currentUpArrowIndex = indexes[0];
+        currentDownArrowIndex = indexes[1];
+        currentLeftArrowIndex = indexes[2];
+        currentRightArrowIndex = indexes[3];
     }
 }

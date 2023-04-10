@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System;
 using Melanchall.DryWetMidi.MusicTheory;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Note = Melanchall.DryWetMidi.Interaction.Note;
+using Melanchall.DryWetMidi.Interaction;
 
 public class SingleButtonAction : PlayerAction
 {
@@ -48,11 +50,41 @@ public class SingleButtonAction : PlayerAction
             InputIndex = CheckMiss(InputIndex, TimeStamp);
         }
     }
+
+    protected override List<double> AddNoteToTimeStamp(Note curNote, Melanchall.DryWetMidi.MusicTheory.NoteName curNoteRestriction,
+        List<double> curTimeStamps, Lane[] lanes, string direction){
+        if (curNote.Octave == 1 && curNote.NoteName == curNoteRestriction)
+        {
+            var metricTimeSpan =
+                TimeConverter.ConvertTo<MetricTimeSpan>(curNote.Time, MusicPlayer.Current.MidiFileTest.GetTempoMap());
+            var spawnTime = (double)metricTimeSpan.Minutes * 60f + metricTimeSpan.Seconds +
+                                (double)metricTimeSpan.Milliseconds / 1000f;
+
+            curTimeStamps.Add(spawnTime - prespawnWarningSeconds);
+            if (enableArrows)
+            {
+                var velocityAsInt = Convert.ToInt32(curNote.Velocity);
+                var lane = velocityAsInt % 10 - 1;
+                var heightLevel = velocityAsInt / 10 % 10;
+                var oneEighthofBeat = 1 / (MusicPlayer.Current.bpm / 60f) / 2;
+                lanes[lane].SpawnArrow((float)spawnTime, heightLevel, direction, oneEighthofBeat);
+
+                laneNums.Add(lane);
+            }
+        }
+        return curTimeStamps;
+    }
+
     public override void TriggerScoreCalculation(InputAction.CallbackContext context)
     {
         if (context.performed && Time.timeSinceLevelLoad > 5 && !GameManager.Current.IsGamePaused() && InputIndex < timeStamps.Count)
         {
-            InputIndex = GetAccuracy(TimeStamp, InputIndex);
+            if (context.action.name == "Jump"){
+                InputIndex = GetAccuracy(TimeStamp, InputIndex, laneNums, "up");
+            }
+            else{
+                InputIndex = GetAccuracy(TimeStamp, InputIndex, laneNums, "down");
+            }
         }
     }
     

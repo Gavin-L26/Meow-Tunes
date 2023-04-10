@@ -22,6 +22,13 @@ public class Checkpoint : MonoBehaviour
     private int inputIndexRightPSA; // PSA Input index right
     private int inputIndexSA; // Stomp Action
 
+    //Note indexes for each lane in the format: [up down left right]
+    private int[] lane1Indexes;
+    private int[] lane2Indexes;
+    private int[] lane3Indexes;
+    private int[] lane4Indexes;
+    private int[] lane5Indexes;
+
     private int hopIndex;
 
     private void Start()
@@ -41,6 +48,12 @@ public class Checkpoint : MonoBehaviour
         inputIndexRightPSA = sideAction.GetInputIndexRight();
         inputIndexSA = stompAction.GetInputIndex();
         hopIndex = PlayerHopManager.Current.GetHopIndex();
+        //Get the note indexes for each lane for correct colour change
+        lane1Indexes = GameObject.Find("Lane1").GetComponent<Lane>().GetLaneIndexes();
+        lane2Indexes = GameObject.Find("Lane2").GetComponent<Lane>().GetLaneIndexes();
+        lane3Indexes = GameObject.Find("Lane3").GetComponent<Lane>().GetLaneIndexes();
+        lane4Indexes = GameObject.Find("Lane4").GetComponent<Lane>().GetLaneIndexes();
+        lane5Indexes = GameObject.Find("Lane5").GetComponent<Lane>().GetLaneIndexes();
         _catRspawnOffsetY = 3f;
         
         if (checkpointSoundGameObject != null)
@@ -78,6 +91,17 @@ public class Checkpoint : MonoBehaviour
 
         hopIndex = PlayerHopManager.Current.GetHopIndex();
         RespawnManager.Current.SetHopIndex(hopIndex);
+
+        lane1Indexes = GameObject.Find("Lane1").GetComponent<Lane>().GetLaneIndexes();
+        RespawnManager.Current.SetLane1Indexes(lane1Indexes);
+        lane2Indexes = GameObject.Find("Lane2").GetComponent<Lane>().GetLaneIndexes();
+        RespawnManager.Current.SetLane2Indexes(lane2Indexes);
+        lane3Indexes = GameObject.Find("Lane3").GetComponent<Lane>().GetLaneIndexes();
+        RespawnManager.Current.SetLane3Indexes(lane3Indexes);
+        lane4Indexes = GameObject.Find("Lane4").GetComponent<Lane>().GetLaneIndexes();
+        RespawnManager.Current.SetLane4Indexes(lane4Indexes);
+        lane5Indexes = GameObject.Find("Lane5").GetComponent<Lane>().GetLaneIndexes();
+        RespawnManager.Current.SetLane5Indexes(lane5Indexes);
 
         RespawnManager.Current.SetRespawnPoint(
             PlayerSyncPosition.Current.GetPlayerPosMusicTimeSyncedPosition(transform.position.y + _catRspawnOffsetY),

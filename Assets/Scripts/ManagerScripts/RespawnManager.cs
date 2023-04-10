@@ -31,6 +31,13 @@ public class RespawnManager : MonoBehaviour
     private int _inputIndexPSA; // Player Side Action
     private int _inputIndexSA; // Stomp Action
     private int _inputIndexRightPSA; // PSA Input index right
+    
+    //Note indexes for each lane in the format: [up down left right]
+    private int[] _lane1Indexes;
+    private int[] _lane2Indexes;
+    private int[] _lane3Indexes;
+    private int[] _lane4Indexes;
+    private int[] _lane5Indexes;
 
     private int _hopIndex;
 
@@ -47,6 +54,12 @@ public class RespawnManager : MonoBehaviour
         _inputIndexRightPSA = sideAction.GetInputIndexRight();
         _inputIndexSA = stompAction.GetInputIndex();
         _hopIndex = PlayerHopManager.Current.GetHopIndex();
+        //Get the note indexes for each lane for correct colour change
+        _lane1Indexes = GameObject.Find("Lane1").GetComponent<Lane>().GetLaneIndexes();
+        _lane2Indexes = GameObject.Find("Lane2").GetComponent<Lane>().GetLaneIndexes();
+        _lane3Indexes = GameObject.Find("Lane3").GetComponent<Lane>().GetLaneIndexes();
+        _lane4Indexes = GameObject.Find("Lane4").GetComponent<Lane>().GetLaneIndexes();
+        _lane5Indexes = GameObject.Find("Lane5").GetComponent<Lane>().GetLaneIndexes();
     }
 
     public IEnumerator RespawnPlayer(float respawnClipLength)
@@ -71,6 +84,13 @@ public class RespawnManager : MonoBehaviour
         sideAction.SetInputIndexRight(_inputIndexRightPSA);
         stompAction.SetInputIndex(_inputIndexSA);
         PlayerHopManager.Current.SetHopIndex(_hopIndex);
+
+        //Reset the indexes of the notes on the lanes
+        GameObject.Find("Lane1").GetComponent<Lane>().SetLaneIndexes(_lane1Indexes);
+        GameObject.Find("Lane2").GetComponent<Lane>().SetLaneIndexes(_lane2Indexes);
+        GameObject.Find("Lane3").GetComponent<Lane>().SetLaneIndexes(_lane3Indexes);
+        GameObject.Find("Lane4").GetComponent<Lane>().SetLaneIndexes(_lane4Indexes);
+        GameObject.Find("Lane5").GetComponent<Lane>().SetLaneIndexes(_lane5Indexes);
 
         CountdownManager.Current.SetCountdown(3f);
         yield return new WaitForSeconds(3f);
@@ -149,5 +169,30 @@ public class RespawnManager : MonoBehaviour
     public void SetHopIndex(int hopI)
     {
         _hopIndex = hopI;
+    }
+
+    public void SetLane1Indexes(int[] indexes)
+    {
+        _lane1Indexes = indexes;
+    }
+
+    public void SetLane2Indexes(int[] indexes)
+    {
+        _lane2Indexes = indexes;
+    }
+
+    public void SetLane3Indexes(int[] indexes)
+    {
+        _lane3Indexes = indexes;
+    }
+
+    public void SetLane4Indexes(int[] indexes)
+    {
+        _lane4Indexes = indexes;
+    }
+
+    public void SetLane5Indexes(int[] indexes)
+    {
+        _lane5Indexes = indexes;
     }
 }

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Melanchall.DryWetMidi.Interaction;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ public abstract class PlayerAction : MonoBehaviour
     public double blinkCooldown;
     protected double PreviousBlink;
     protected bool AbleToBlink;
-    protected int InputIndex;
+    public int InputIndex;
     public int prespawnWarningSeconds;
     public double TimeStamp;
     protected double PerfectMarginOfError;
@@ -52,13 +53,13 @@ public abstract class PlayerAction : MonoBehaviour
         return (ableToBlink, previousBlink);
     }
 
-    protected int GetAccuracy(double timeStamp, int inputIndex)
+    protected int GetAccuracy(double timeStamp, int inputIndex, List<int> laneNumsChoice, string direction)
     {
         if (Math.Abs(AudioTime - (timeStamp)) < PerfectMarginOfError)
         {
             //Perfect
             Hit();
-            arrowBlink(inputIndex, perfectColor);
+            arrowBlink(inputIndex, perfectColor, laneNumsChoice, direction);
             print($"Hit on {inputIndex} note - time: {timeStamp} audio time {AudioTime}");
             inputIndex++;
         }
@@ -66,7 +67,7 @@ public abstract class PlayerAction : MonoBehaviour
         {
             //Nice
             Inaccurate();
-            arrowBlink(inputIndex,niceColor);
+            arrowBlink(inputIndex, niceColor, laneNumsChoice, direction);
             print(
                 $"Hit inaccurate on {inputIndex} note with {Math.Abs(AudioTime - timeStamp)} delay - time: {timeStamp} audio time {AudioTime}");
             inputIndex++;
@@ -74,7 +75,7 @@ public abstract class PlayerAction : MonoBehaviour
         else{
             //Oops
             Miss();
-            arrowBlink(inputIndex, missColor);
+            arrowBlink(inputIndex, missColor, laneNumsChoice, direction);
             print($"Missed {inputIndex} note - time: {timeStamp} audio time {AudioTime}");
 
             if(AudioTime - timeStamp > NiceMarginOfError){
@@ -84,29 +85,8 @@ public abstract class PlayerAction : MonoBehaviour
         return inputIndex;
     }
 
-    protected List<double> AddNoteToTimeStamp(Note curNote, Melanchall.DryWetMidi.MusicTheory.NoteName curNoteRestriction,
-        List<double> curTimeStamps, Lane[] lanes, string direction){
-        if (curNote.Octave == 1 && curNote.NoteName == curNoteRestriction)
-        {
-            var metricTimeSpan =
-                TimeConverter.ConvertTo<MetricTimeSpan>(curNote.Time, MusicPlayer.Current.MidiFileTest.GetTempoMap());
-            var spawnTime = (double)metricTimeSpan.Minutes * 60f + metricTimeSpan.Seconds +
-                                (double)metricTimeSpan.Milliseconds / 1000f;
-
-            curTimeStamps.Add(spawnTime - prespawnWarningSeconds);
-            if (enableArrows)
-            {
-                var velocityAsInt = Convert.ToInt32(curNote.Velocity);
-                var lane = velocityAsInt % 10 - 1;
-                var heightLevel = velocityAsInt / 10 % 10;
-                var oneEighthofBeat = 1 / (MusicPlayer.Current.bpm / 60f) / 2;
-                lanes[lane].SpawnArrow((float)spawnTime, heightLevel, direction, oneEighthofBeat);
-
-                laneNums.Add(lane);
-            }
-        }
-        return curTimeStamps;
-    }
+    protected abstract List<double> AddNoteToTimeStamp(Note curNote, Melanchall.DryWetMidi.MusicTheory.NoteName curNoteRestriction,
+        List<double> curTimeStamps, Lane[] lanes, string direction);
 
     protected int CheckMiss(int inputIndex, double curTimeStamp) {
 
@@ -139,9 +119,9 @@ public abstract class PlayerAction : MonoBehaviour
         PlatformManager.current.InvokeBlink(blinkColor);
     }
 
-    private void arrowBlink(int inputIndex, Color blinkColor)
+    private void arrowBlink(int inputIndex, Color blinkColor, List<int> laneNumsChoice, string direction)
     {
-        StartCoroutine(allLanes[laneNums[inputIndex]].ArrowBlinkDelay(inputIndex, blinkColor));
+        StartCoroutine(allLanes[laneNumsChoice[inputIndex]].ArrowBlinkDelay(blinkColor, direction));
     }
 
     public abstract void TriggerScoreCalculation(InputAction.CallbackContext context);
