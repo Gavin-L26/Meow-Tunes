@@ -29,6 +29,7 @@ public class Lane : MonoBehaviour
     private int currentDownArrowIndex = 0;
     private int currentLeftArrowIndex = 0;
     private int currentRightArrowIndex = 0;
+    private Color defaultColor = new Color(0.8f, 0.8f, 0.8f);
 
     public void SpawnPlatformsAndFishTreats(IEnumerable<Note> array, float bpm)
     {
@@ -155,14 +156,12 @@ public class Lane : MonoBehaviour
 
     public IEnumerator ArrowBlinkDelay(Color blinkColor, string direction, bool increment)
     {
-        Color previousColor;
         GameObject arrow;
 
         arrow= GetArrowWithIndex(direction);
-        previousColor = arrow.GetComponent<Renderer>().material.GetColor("_BaseColor");
         arrow.GetComponent<Renderer>().material.SetColor("_BaseColor", blinkColor);
         yield return new WaitForSeconds(_blinkWaitTime);
-        arrow.GetComponent<Renderer>().material.SetColor("_BaseColor", previousColor);
+        arrow.GetComponent<Renderer>().material.SetColor("_BaseColor", defaultColor);
 
         //Increment arrow index only the note is hit at the correct time or after it
         if (increment){
