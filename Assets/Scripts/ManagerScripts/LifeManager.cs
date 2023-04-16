@@ -42,7 +42,7 @@ public class LifeManager : MonoBehaviour
     public void LostLife()
     {
         playerMovement.SetPlayerInputEnabled(false);
-        Debug.Log("player input disabled");
+        //Debug.Log("player input disabled");
         animator.Play("CatFalling", 0, 0f);
         StartCoroutine(WaitThenEnablePlayerInput());
         respawnSound.Play();
@@ -67,6 +67,6 @@ public class LifeManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         playerMovement.SetPlayerInputEnabled(true);
-        Debug.Log("player input enabled from life manager");
+        //Debug.Log("player input enabled from life manager");
     }
 }
