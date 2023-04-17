@@ -70,7 +70,7 @@ public abstract class PlayerAction : MonoBehaviour
             //Nice
             Inaccurate();
             if (enableArrows){
-                arrowBlink(inputIndex, perfectColor, laneNumsChoice, direction, true);
+                arrowBlink(inputIndex, niceColor, laneNumsChoice, direction, true);
             }
             print(
                 $"Hit inaccurate on {inputIndex} note with {Math.Abs(AudioTime - timeStamp)} delay - time: {timeStamp} audio time {AudioTime}");
@@ -83,12 +83,12 @@ public abstract class PlayerAction : MonoBehaviour
 
             if(AudioTime - timeStamp > NiceMarginOfError){ //After the note has passed
                 if (enableArrows){
-                    arrowBlink(inputIndex, perfectColor, laneNumsChoice, direction, true);
+                    arrowBlink(inputIndex, missColor, laneNumsChoice, direction, true);
                 }
                 inputIndex++;
             }else{ //before the note has passed
                 if (enableArrows){
-                    arrowBlink(inputIndex, perfectColor, laneNumsChoice, direction, false);
+                    arrowBlink(inputIndex, missColor, laneNumsChoice, direction, false);
                 }
             }
         }
