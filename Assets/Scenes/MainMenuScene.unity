@@ -2096,7 +2096,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press <voffset=0.4em><size=30><sprite=0></size></voffset>to select
+  m_text: Press <voffset=0.4em><size=30><sprite="button_xbox_digital_a_1" index=0></size></voffset>to
+    select
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 823fa2d9497d949e2931c5949719fc9e, type: 2}
   m_sharedMaterial: {fileID: 1477683747446890794, guid: 823fa2d9497d949e2931c5949719fc9e, type: 2}
@@ -2528,7 +2529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -165.40001}
+  m_AnchoredPosition: {x: 71.6, y: -163.4}
   m_SizeDelta: {x: 174.701, y: 31.0957}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &969483201
@@ -2551,7 +2552,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press <voffset=0.4em><size=30><sprite="Button - PS Cross 1" index=0></size></voffset>to
+  m_text: Press <voffset=0.4em><size=30><pos=30%><sprite="Button - PS Cross 1" index=0></size></pos></voffset>to
     select
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 823fa2d9497d949e2931c5949719fc9e, type: 2}
@@ -2615,7 +2616,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -0.11388016, z: 0.15183638, w: 0.29772186}
+  m_margin: {x: -98.95935, y: -0.11388016, z: 34.410122, w: -2.513621}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2724,7 +2725,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press  <voffset=0.4em><sprite="enter_button" index=0></voffset>to select
+  m_text: Press  <voffset=0.4em><sprite="Keyboard_enter" index=0></voffset>to select
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 823fa2d9497d949e2931c5949719fc9e, type: 2}
   m_sharedMaterial: {fileID: 1477683747446890794, guid: 823fa2d9497d949e2931c5949719fc9e, type: 2}

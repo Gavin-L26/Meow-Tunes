@@ -20,6 +20,7 @@ public abstract class PlayerAction : MonoBehaviour
     public double TimeStamp;
     protected double PerfectMarginOfError;
     protected double NiceMarginOfError;
+    protected double BeforeNotePadding;
     protected double AudioTime;
     public bool enableBlink;
     public bool enableArrows;
@@ -32,6 +33,7 @@ public abstract class PlayerAction : MonoBehaviour
     protected virtual void Start() {
         PerfectMarginOfError = MusicPlayer.Current.perfectMarginOfError;
         NiceMarginOfError = MusicPlayer.Current.niceMarginOfError;
+        BeforeNotePadding = MusicPlayer.Current.beforeNotePadding;
         AbleToBlink = true;
     }
 
@@ -76,7 +78,8 @@ public abstract class PlayerAction : MonoBehaviour
                 $"Hit inaccurate on {inputIndex} note with {Math.Abs(AudioTime - timeStamp)} delay - time: {timeStamp} audio time {AudioTime}");
             inputIndex++;
         }
-        else{
+        else if(Math.Abs(AudioTime - timeStamp) < BeforeNotePadding)
+        {
             //Oops
             Miss();
             print($"Missed {inputIndex} note - time: {timeStamp} audio time {AudioTime}");

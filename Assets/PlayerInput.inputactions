@@ -42,7 +42,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause/Resume",
+                    "name": "Back",
+                    "type": "Button",
+                    "id": "cb6d205b-50dd-4551-aa0a-56056b263b4f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
                     "type": "Button",
                     "id": "1679dafc-65b9-4177-b76e-e478cc1074bd",
                     "expectedControlType": "Button",
@@ -394,7 +403,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Pause/Resume",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -405,7 +414,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Pause/Resume",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -416,7 +425,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Pause/Resume",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -427,7 +436,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause/Resume",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -438,7 +447,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause/Resume",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -571,6 +580,61 @@
                     "processors": "",
                     "groups": "",
                     "action": "Eat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d493ed74-af3c-4635-b960-e3caedaff258",
+                    "path": "<DualShockGamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99e9cfaa-8bfc-4fde-b7c7-f9c0fd0e27d2",
+                    "path": "<SwitchProControllerHID>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "52d3ced1-da82-434e-bdb3-725c5e52eade",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c859ec0f-4ef4-4ba9-aa63-c1cea89236ce",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de2765a9-752d-46ac-a005-048cc2b57730",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

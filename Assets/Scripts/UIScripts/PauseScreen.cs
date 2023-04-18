@@ -22,10 +22,18 @@ public class PauseScreen : MonoBehaviour
         {
             Cursor.visible = true;
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Current.HasGameEnded() && !CountdownManager.Current.countingDown)
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Current.HasGameEnded() 
+            && !CountdownManager.Current.countingDown)
         {
-            PauseOrResume();
-        } 
+            if (!GameManager.Current.IsGamePaused())
+            {
+                Pause();
+            }
+            else if (GameManager.Current.IsGamePaused())
+            {
+                ResumeOrExitSettings();
+            }
+        }
     }
 
     public void Resume()
@@ -79,12 +87,21 @@ public class PauseScreen : MonoBehaviour
         Time.timeScale = 1f;
         GameManager.Current.BackToMainMenu();
     }
-    public void PauseOrResumeController(InputAction.CallbackContext context)
+    public void PauseController(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
             if (GameManager.Current.HasGameEnded()) return;
-            PauseOrResume();
+            if (!GameManager.Current.IsGamePaused()) Pause();
+        }
+    }
+
+    public void ResumeController(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (GameManager.Current.HasGameEnded()) return;
+            if (GameManager.Current.IsGamePaused()) ResumeOrExitSettings();
         }
     }
 
@@ -105,8 +122,9 @@ public class PauseScreen : MonoBehaviour
         _playerMovementScript.enabled = true;
     }
 
-    private void PauseOrResume()
+    private void ResumeOrExitSettings()
     {
+        if (!GameManager.Current.IsGamePaused() || GameManager.Current.HasGameEnded() || CountdownManager.Current.countingDown) return;
         if (GameManager.Current.IsGamePaused() && !settingsMenuUI.activeInHierarchy)
         {
             Resume();
@@ -115,10 +133,6 @@ public class PauseScreen : MonoBehaviour
             SettingsMenu.current.BackToMainMenuOrPauseScreen();
             settingsMenuUI.SetActive(false);
             pauseMenuUI.SetActive(true);
-        }
-        else
-        {
-            Pause();
         }
     }
 

@@ -24,6 +24,7 @@ public class MusicPlayer : MonoBehaviour
     public PlayerAction[] playerActions;
     public double perfectMarginOfError;
     public double niceMarginOfError;
+    public double beforeNotePadding;
     public int inputDelayInMilliseconds; //Delay Time for when the music starts
 
     private bool _audioPlayed;
