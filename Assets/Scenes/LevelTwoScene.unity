@@ -863,6 +863,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 0
   spacingSize: 2
 --- !u!4 &11918408
@@ -1306,6 +1310,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 5
   spacingSize: 2
 --- !u!4 &22304591
@@ -1771,6 +1779,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 6
   spacingSize: 2
 --- !u!4 &32384472
@@ -2913,7 +2925,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1918844817}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &98813675
 AudioSource:
@@ -3673,6 +3685,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 3
   spacingSize: 2
 --- !u!4 &160308260
@@ -3736,12 +3752,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteRestriction: 2
   timeStamps: []
+  laneNums: 
   blinkOffset: 0.25
   blinkCooldown: 0.125
+  InputIndex: 0
   prespawnWarningSeconds: 0
   TimeStamp: 0
   enableBlink: 1
   enableArrows: 0
+  perfectColor: {r: 0, g: 1, b: 0, a: 1}
+  niceColor: {r: 1, g: 1, b: 0, a: 1}
+  missColor: {r: 1, g: 0, b: 0, a: 1}
   blinkColor: {r: 0.24313726, g: 0.7647059, b: 0.41568628, a: 0}
 --- !u!1001 &170498618
 PrefabInstance:
@@ -8844,7 +8865,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1918844817}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &502785736
 AudioSource:
@@ -10460,7 +10481,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1918844817}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &573348226
 AudioSource:
@@ -13847,12 +13868,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteRestriction: 4
   timeStamps: []
+  laneNums: 
   blinkOffset: 0.25
   blinkCooldown: 0.125
+  InputIndex: 0
   prespawnWarningSeconds: 0
   TimeStamp: 0
   enableBlink: 1
   enableArrows: 1
+  perfectColor: {r: 0, g: 1, b: 0, a: 1}
+  niceColor: {r: 1, g: 1, b: 0, a: 1}
+  missColor: {r: 1, g: 0, b: 0, a: 1}
   blinkColor: {r: 0.8113208, g: 0.17221434, b: 0.17221434, a: 0}
 --- !u!1001 &759435903
 PrefabInstance:
@@ -15208,14 +15234,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteRestriction: 3
   timeStamps: []
+  laneNums: 
   blinkOffset: 0.25
   blinkCooldown: 0.125
+  InputIndex: 0
   prespawnWarningSeconds: 0
   TimeStamp: 0
   enableBlink: 1
   enableArrows: 0
+  perfectColor: {r: 0, g: 1, b: 0, a: 1}
+  niceColor: {r: 1, g: 1, b: 0, a: 1}
+  missColor: {r: 1, g: 0, b: 0, a: 1}
   noteRestrictionRight: 1
   timeStampsRight: []
+  laneNumsRight: 
   jumpAction: {fileID: 162775319}
   inputIndexRight: 0
 --- !u!1001 &839857272
@@ -21092,7 +21124,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1918844817}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1174596371
 AudioSource:
@@ -21710,7 +21742,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1918844817}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1209738616
 AudioSource:
@@ -21955,7 +21987,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1918844817}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1226781900
 AudioSource:
@@ -23469,7 +23501,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1918844817}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1321058096
 AudioSource:
@@ -24126,7 +24158,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1918844817}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1352363780
 AudioSource:
@@ -24560,134 +24592,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6507052609592208816, guid: 1b3bfbbfcc91cc243858520a4e4db612, type: 3}
   m_PrefabInstance: {fileID: 1364950518}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1370060875
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1370060876}
-  - component: {fileID: 1370060877}
-  m_Layer: 0
-  m_Name: Cat Walking
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1370060876
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370060875}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1918844817}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1370060877
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370060875}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 19c3194cf84c61a41b962c7dd340ec8e, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.15
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &1373427454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27301,6 +27205,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 2
   spacingSize: 2
 --- !u!4 &1563533518
@@ -27892,6 +27800,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 4
   spacingSize: 2
 --- !u!4 &1626550414
@@ -28040,7 +27952,6 @@ MonoBehaviour:
   jump4: {fileID: 9180474}
   landJump: {fileID: 266175418}
   stomp: {fileID: 335329622}
-  catWalking: {fileID: 1370060877}
   reachedCheckpoint: {fileID: 1174596371}
   catRespawn: {fileID: 1209738616}
   countdownSound: {fileID: 573348226}
@@ -30923,7 +30834,7 @@ MonoBehaviour:
   jumpSound4: {fileID: 9180474}
   stompSound: {fileID: 335329622}
   landFromJumpSound: {fileID: 266175418}
-  walkingSound: {fileID: 1370060877}
+  walkingSound: {fileID: 0}
   sidewayWalkSpeed: 12.79
   forwardWalkSpeed: 10.79
   lanePositions: []
@@ -30938,7 +30849,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   playerHeight: 2
   playerWidth: 2
-  maxSlopeAngle: 40
   state: 0
 --- !u!114 &1828724621
 MonoBehaviour:
@@ -32692,7 +32602,6 @@ Transform:
   - {fileID: 186910983}
   - {fileID: 9180473}
   - {fileID: 266175417}
-  - {fileID: 1370060876}
   - {fileID: 502785735}
   - {fileID: 1174596370}
   - {fileID: 1209738615}
@@ -36237,6 +36146,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 1
   spacingSize: 2
 --- !u!4 &2122082842

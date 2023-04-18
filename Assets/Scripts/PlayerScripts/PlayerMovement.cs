@@ -23,8 +23,6 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource landFromJumpSound;
     private bool _justLanded;
 
-    public AudioSource walkingSound;
-
     [Header("Movement")]
     public float sidewayWalkSpeed;
     public float forwardWalkSpeed;
@@ -118,9 +116,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 return;
             }
-
-            if (_rb.velocity.magnitude > 1 && _grounded && !walkingSound.isPlaying) walkingSound.Play();
-            if (_rb.velocity.magnitude <= 0 || !_grounded || GameManager.Current.HasGameEnded()) walkingSound.Stop();
         }
     }
 
