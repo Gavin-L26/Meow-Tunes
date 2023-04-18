@@ -487,7 +487,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 193bf47eb95b3ee44b1a2c617dfa8b3a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e0245580dd4b3b40842e8df82d25ad5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14180,7 +14180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fe4c4cdef0a38444482d6b82b01d80c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a0788a71db30531439a9920425c12e9a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -24751,7 +24751,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7e6430bd474383b46bfcae02680ee01e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3df224fbfc1f87d4c85cc36f7214121e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -38689,7 +38689,6 @@ MonoBehaviour:
   jumpSound4: {fileID: 9180474}
   stompSound: {fileID: 664041993}
   landFromJumpSound: {fileID: 266175418}
-  walkingSound: {fileID: 0}
   sidewayWalkSpeed: 8.25
   forwardWalkSpeed: 6.25
   lanePositions: []
@@ -39849,7 +39848,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 89e95f29c70e8c04d983dcca934ae29b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2cb89854357fdf041a89094beca7e337, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -42285,7 +42284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fe4c4cdef0a38444482d6b82b01d80c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a0788a71db30531439a9920425c12e9a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

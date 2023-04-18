@@ -388,7 +388,7 @@
                 {
                     "name": "",
                     "id": "8376709b-eb0d-4217-bdbd-d55442eaa5d4",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -487,7 +487,7 @@
                 {
                     "name": "",
                     "id": "de3a3a11-cc26-48a8-8c02-9e3166671039",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -531,7 +531,7 @@
                 {
                     "name": "",
                     "id": "a2c82f75-94b6-4616-bf04-366f8406de79",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
