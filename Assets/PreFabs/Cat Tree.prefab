@@ -229,7 +229,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpointSound: {fileID: 0}
+  Player: {fileID: 0}
+  animator: {fileID: 0}
   laneNumber: 0
+  scoreManager: {fileID: 0}
+  jumpAction: {fileID: 0}
+  stompAction: {fileID: 0}
+  sideAction: {fileID: 0}
 --- !u!65 &8860076903930998180
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -241,5 +247,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5923386, y: 1.4438734, z: 1.4995956}
+  m_Size: {x: 1.5923386, y: 1.543873, z: 1.4995956}
   m_Center: {x: -0.416512, y: 2.198417, z: 0.025081635}

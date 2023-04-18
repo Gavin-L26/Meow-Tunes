@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 246226352112295792}
   - component: {fileID: 246226352112295793}
   - component: {fileID: 246226352112295806}
-  - component: {fileID: 246226352112295804}
+  - component: {fileID: 3809222476715936723}
   - component: {fileID: 246226352112295805}
   - component: {fileID: 5574776756904989703}
   m_Layer: 2
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 816276279cc4ad949871a41c01ae3a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &246226352112295804
-CapsuleCollider:
+--- !u!135 &3809222476715936723
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,10 +110,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.4690938
-  m_Height: 1.849411
-  m_Direction: 2
-  m_Center: {x: -0.001995802, y: -1.9640927, z: 0.19786835}
+  serializedVersion: 2
+  m_Radius: 0.82
+  m_Center: {x: -0.001995802, y: -1.804093, z: 0.170683}
 --- !u!95 &246226352112295805
 Animator:
   serializedVersion: 4

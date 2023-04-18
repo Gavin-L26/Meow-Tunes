@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2130723080685768994}
   - component: {fileID: 1606091568648154026}
-  - component: {fileID: 5927824602679351783}
   - component: {fileID: 7838597898027509193}
   - component: {fileID: 4461454986842618583}
+  - component: {fileID: 4281788450007747059}
   m_Layer: 0
   m_Name: FishCollectible Level Two
   m_TagString: fishtreat
@@ -48,20 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 816276279cc4ad949871a41c01ae3a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &5927824602679351783
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646639569307700120}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.6457746
-  m_Height: 1.849411
-  m_Direction: 2
-  m_Center: {x: -0.027965546, y: -1.8596771, z: 0.19786835}
 --- !u!95 &7838597898027509193
 Animator:
   serializedVersion: 4
@@ -94,6 +80,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34dae8b11dc3be647919ee4fe6406435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &4281788450007747059
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646639569307700120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.82
+  m_Center: {x: -0.02796555, y: -1.819677, z: 0.1978683}
 --- !u!1 &5803245423452711851
 GameObject:
   m_ObjectHideFlags: 0
