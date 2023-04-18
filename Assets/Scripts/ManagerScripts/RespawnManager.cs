@@ -74,7 +74,6 @@ public class RespawnManager : MonoBehaviour
         AdjustPlayerPosition();
         _playerCharacterMovement.enabled = false;
         //PlayerMovement.Current.SetPlayerInputEnabled(false);
-        PlayerMovement.Current.walkingSound.Stop();
         // Reset Fish Treats on the lanes
         MusicPlayer.Current.ResetAllFishTreats();
         ScoreManager.current.SetAndUpdateFishScore(_playerFishScore);

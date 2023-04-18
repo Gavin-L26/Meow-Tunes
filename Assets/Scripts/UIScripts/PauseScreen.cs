@@ -63,7 +63,6 @@ public class PauseScreen : MonoBehaviour
         }
         musicPlayer.Pause();
         _playerMovementScript.enabled = false;
-        PlayerMovement.Current.walkingSound.Stop();
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(pauseScreenFirstButton);
         pauseMenuUI.SetActive(true);
