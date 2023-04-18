@@ -30,7 +30,7 @@ public class SingleButtonAction : PlayerAction
                 timeStamps = AddNoteToTimeStamp(note, noteRestriction, timeStamps, lanes, "down");
 
             }
-            else
+            else if (noteRestriction == NoteName.D)
             {
                 timeStamps = AddNoteToTimeStamp(note, noteRestriction, timeStamps, lanes, "up");
             }
@@ -47,7 +47,12 @@ public class SingleButtonAction : PlayerAction
             if (enableBlink)
                 (AbleToBlink, PreviousBlink) = CheckBlink(blinkColor, blinkColor, TimeStamp, TimeStamp,  AbleToBlink, PreviousBlink);
             
-            InputIndex = CheckMiss(InputIndex, TimeStamp);
+            if (noteRestriction == NoteName.E){
+                InputIndex = CheckMiss(InputIndex, TimeStamp, laneNums, "down");
+            }
+            else if (noteRestriction == NoteName.D){
+                InputIndex = CheckMiss(InputIndex, TimeStamp, laneNums, "up");
+            }
         }
     }
 

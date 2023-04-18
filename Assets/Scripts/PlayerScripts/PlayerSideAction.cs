@@ -97,11 +97,11 @@ public class PlayerSideAction : PlayerAction
             
             if (InputIndex < timeStamps.Count){
                 TimeStamp = timeStamps[InputIndex];
-                InputIndex = CheckMiss(InputIndex, TimeStamp);
+                InputIndex = CheckMiss(InputIndex, TimeStamp, laneNums, "left");
             }
             if (inputIndexRight < timeStampsRight.Count){
                 _timeStampRight = timeStampsRight[inputIndexRight];
-                inputIndexRight = CheckMiss(inputIndexRight, _timeStampRight);
+                inputIndexRight = CheckMiss(inputIndexRight, _timeStampRight, laneNumsRight, "right");
             }
         }
     }

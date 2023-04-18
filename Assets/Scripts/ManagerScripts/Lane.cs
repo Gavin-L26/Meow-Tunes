@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using Melanchall.DryWetMidi.Interaction;
 using System.Collections;

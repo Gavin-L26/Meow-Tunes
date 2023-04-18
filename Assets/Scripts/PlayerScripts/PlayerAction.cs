@@ -98,12 +98,13 @@ public abstract class PlayerAction : MonoBehaviour
     protected abstract List<double> AddNoteToTimeStamp(Note curNote, Melanchall.DryWetMidi.MusicTheory.NoteName curNoteRestriction,
         List<double> curTimeStamps, Lane[] lanes, string direction);
 
-    protected int CheckMiss(int inputIndex, double curTimeStamp) {
+    protected int CheckMiss(int inputIndex, double curTimeStamp, List<int> laneNumsChoice, string direction) {
 
         if (curTimeStamp + NiceMarginOfError <= AudioTime)
         {
             Miss();
             print($"Missed {inputIndex} note - time: {curTimeStamp} audio time {AudioTime}");
+            arrowBlink(inputIndex, missColor, laneNumsChoice, direction, true);
             inputIndex++;
         }
         return inputIndex;
