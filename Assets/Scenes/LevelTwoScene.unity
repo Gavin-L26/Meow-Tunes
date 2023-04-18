@@ -863,6 +863,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 0
   spacingSize: 2
 --- !u!4 &11918408
@@ -1306,6 +1310,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 5
   spacingSize: 2
 --- !u!4 &22304591
@@ -1771,6 +1779,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 6
   spacingSize: 2
 --- !u!4 &32384472
@@ -3673,6 +3685,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 3
   spacingSize: 2
 --- !u!4 &160308260
@@ -3736,12 +3752,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteRestriction: 2
   timeStamps: []
+  laneNums: 
   blinkOffset: 0.25
   blinkCooldown: 0.125
+  InputIndex: 0
   prespawnWarningSeconds: 0
   TimeStamp: 0
   enableBlink: 1
   enableArrows: 0
+  perfectColor: {r: 0, g: 1, b: 0, a: 1}
+  niceColor: {r: 1, g: 1, b: 0, a: 1}
+  missColor: {r: 1, g: 0, b: 0, a: 1}
   blinkColor: {r: 0.24313726, g: 0.7647059, b: 0.41568628, a: 0}
 --- !u!1001 &170498618
 PrefabInstance:
@@ -13847,12 +13868,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteRestriction: 4
   timeStamps: []
+  laneNums: 
   blinkOffset: 0.25
   blinkCooldown: 0.125
+  InputIndex: 0
   prespawnWarningSeconds: 0
   TimeStamp: 0
   enableBlink: 1
-  enableArrows: 1
+  enableArrows: 0
+  perfectColor: {r: 0, g: 1, b: 0, a: 1}
+  niceColor: {r: 1, g: 1, b: 0, a: 1}
+  missColor: {r: 1, g: 0, b: 0, a: 1}
   blinkColor: {r: 0.8113208, g: 0.17221434, b: 0.17221434, a: 0}
 --- !u!1001 &759435903
 PrefabInstance:
@@ -15208,14 +15234,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteRestriction: 3
   timeStamps: []
+  laneNums: 
   blinkOffset: 0.25
   blinkCooldown: 0.125
+  InputIndex: 0
   prespawnWarningSeconds: 0
   TimeStamp: 0
   enableBlink: 1
   enableArrows: 0
+  perfectColor: {r: 0, g: 1, b: 0, a: 1}
+  niceColor: {r: 1, g: 1, b: 0, a: 1}
+  missColor: {r: 1, g: 0, b: 0, a: 1}
   noteRestrictionRight: 1
   timeStampsRight: []
+  laneNumsRight: 
   jumpAction: {fileID: 162775319}
   inputIndexRight: 0
 --- !u!1001 &839857272
@@ -27301,6 +27333,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 2
   spacingSize: 2
 --- !u!4 &1563533518
@@ -27892,6 +27928,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 4
   spacingSize: 2
 --- !u!4 &1626550414
@@ -30938,7 +30978,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   playerHeight: 2
   playerWidth: 2
-  maxSlopeAngle: 40
   state: 0
 --- !u!114 &1828724621
 MonoBehaviour:
@@ -36237,6 +36276,10 @@ MonoBehaviour:
   arrowRightPrefab: {fileID: 1782608520572149937, guid: b1e382763f6d7db408e9818ee012551a, type: 3}
   arrowDownPrefab: {fileID: 361716525955911692, guid: adf36540ce78db44f9718619c138861a, type: 3}
   platforms: []
+  upArrows: []
+  downArrows: []
+  leftArrows: []
+  rightArrows: []
   laneNumber: 1
   spacingSize: 2
 --- !u!4 &2122082842

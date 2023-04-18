@@ -107,7 +107,9 @@ public abstract class PlayerAction : MonoBehaviour
         {
             Miss();
             print($"Missed {inputIndex} note - time: {curTimeStamp} audio time {AudioTime}");
-            arrowBlink(inputIndex, missColor, laneNumsChoice, direction, true);
+            if (enableArrows){
+                arrowBlink(inputIndex, missColor, laneNumsChoice, direction, true);
+            }
             inputIndex++;
         }
         return inputIndex;
