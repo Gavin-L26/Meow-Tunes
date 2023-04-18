@@ -41142,6 +41142,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: BackToMainMenuOrPauseScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 7712564532270442449, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 76669ce46a1c86846b5be26dad39c43b, type: 3}
     - target: {fileID: 7712564532621279158, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

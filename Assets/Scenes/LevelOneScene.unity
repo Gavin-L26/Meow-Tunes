@@ -42516,7 +42516,6 @@ MonoBehaviour:
   jumpSound4: {fileID: 9180474}
   stompSound: {fileID: 1994855421}
   landFromJumpSound: {fileID: 266175418}
-  walkingSound: {fileID: 0}
   sidewayWalkSpeed: 10.8
   forwardWalkSpeed: 8.8
   lanePositions: []
@@ -48842,6 +48841,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7712564532270442449, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 76669ce46a1c86846b5be26dad39c43b, type: 3}
     - target: {fileID: 7712564532489744411, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
