@@ -10366,6 +10366,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497884120}
   m_Mesh: {fileID: -7509399623989046769, guid: 429b8e8d2c8bf4af1ae70ee232c7b789, type: 3}
+--- !u!1 &499428091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7712564531165661884, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
+  m_PrefabInstance: {fileID: 1976071766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &502785734
 GameObject:
   m_ObjectHideFlags: 0
@@ -41132,6 +41137,10 @@ PrefabInstance:
       propertyPath: musicPlayer
       value: 
       objectReference: {fileID: 1714051773}
+    - target: {fileID: 7712564531989505938, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
+      propertyPath: controllerUI
+      value: 
+      objectReference: {fileID: 499428091}
     - target: {fileID: 7712564531989505938, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
       propertyPath: playerMovement
       value: 
