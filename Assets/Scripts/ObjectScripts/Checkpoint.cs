@@ -84,7 +84,7 @@ public class Checkpoint : MonoBehaviour
         RespawnManager.Current.SetInputIndexJA(inputIndexJA);
         inputIndexPSA = sideAction.GetInputIndex();
         RespawnManager.Current.SetInputIndexPSA(inputIndexPSA);
-        inputIndexRightPSA = sideAction.GetInputIndex();
+        inputIndexRightPSA = sideAction.GetInputIndexRight();
         RespawnManager.Current.SetInputIndexRightPSA(inputIndexRightPSA);
         inputIndexSA = stompAction.GetInputIndex();
         RespawnManager.Current.SetInputIndexSA(inputIndexSA);
