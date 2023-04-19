@@ -10,11 +10,13 @@ using UnityEngine.UI;
     {
         public GameObject ps4Map, keyboardMap;
         private Gamepad _gamepad;
+        private PauseScreen _pauseScreenScript;
 
         private void Start()
         {
             keyboardMap.SetActive(true);
             _gamepad = Gamepad.current;
+            _pauseScreenScript = GetComponent<PauseScreen>();
         }
 
         private void Update()

@@ -20488,6 +20488,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5675749665967326835, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
+--- !u!198 &927319371 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7609965094261868719, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
+  m_PrefabInstance: {fileID: 927319370}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &927319373 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8033697961162981974, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
@@ -38700,6 +38705,7 @@ MonoBehaviour:
   jumpCooldown: 0
   stompForce: 9
   jumpingGravity: 30
+  particleSystem: {fileID: 927319371}
   animator: {fileID: 0}
   playerHeight: 2
   playerWidth: 2

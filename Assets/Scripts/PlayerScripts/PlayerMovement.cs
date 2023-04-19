@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _ateFish;
     private Collider _fishtreatCollider;
 
+    public ParticleSystem particleSystem;
+
     [Header("Movement Animation")]
     public Animator animator;
 
@@ -278,6 +280,13 @@ public class PlayerMovement : MonoBehaviour
                 //perfect!
                 _ateFish = true;
                 _fishtreatCollider.gameObject.GetComponent<FishHit>().HideFishTreat();
+
+                UnityEngine.Debug.Log("particles");
+
+                // Activate eat particle effect
+                particleSystem.Play();
+                //ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
+                //em.enabled = true;
 
                 ScoreManager.current.UpdateFishScore(1);
             }
