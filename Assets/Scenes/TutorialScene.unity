@@ -7540,7 +7540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85218f3e7500ce40b73657e369bf9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsClosedButton: {fileID: 326870767}
+  settingsClosedButton: {fileID: 443267556}
   controlBackButton: {fileID: 1976071775}
   catJump4: {fileID: 9180474}
   settingsMenu: {fileID: 1976071774}
@@ -9138,6 +9138,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7573723302174861771, guid: 3c9bbaa3fd30c49088734acf5995b9c7, type: 3}
   m_PrefabInstance: {fileID: 1840240894}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &443267556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7712564533253475416, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
+  m_PrefabInstance: {fileID: 1976071766}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &446630826
 GameObject:
@@ -20041,7 +20046,7 @@ PrefabInstance:
     - target: {fileID: 2571783344404323081, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7712564531989505938, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
+      objectReference: {fileID: 37661952}
     - target: {fileID: 2571783344404323081, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
