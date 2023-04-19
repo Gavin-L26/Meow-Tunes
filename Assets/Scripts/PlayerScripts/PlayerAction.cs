@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Melanchall.DryWetMidi.Interaction;
 using System;
 using System.Collections.Generic;
@@ -9,22 +10,30 @@ public abstract class PlayerAction : MonoBehaviour
     
     public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction;
     public List<double> timeStamps = new List<double>();
+    public List<int> laneNums = new List<int>(); //the lane each note is on
     public double blinkOffset;
     public double blinkCooldown;
     protected double PreviousBlink;
     protected bool AbleToBlink;
-    protected int InputIndex;
+    public int InputIndex;
     public int prespawnWarningSeconds;
     public double TimeStamp;
     protected double PerfectMarginOfError;
     protected double NiceMarginOfError;
+    protected double BeforeNotePadding;
     protected double AudioTime;
     public bool enableBlink;
     public bool enableArrows;
+    protected Lane[] allLanes;
+    
+    public Color perfectColor  = Color.green;
+    public Color niceColor = new Color(1.0f, 1.0f, 0f); //Yellow;
+    public Color missColor = Color.red;
 
     protected virtual void Start() {
         PerfectMarginOfError = MusicPlayer.Current.perfectMarginOfError;
         NiceMarginOfError = MusicPlayer.Current.niceMarginOfError;
+        BeforeNotePadding = MusicPlayer.Current.beforeNotePadding;
         AbleToBlink = true;
     }
 
@@ -46,12 +55,15 @@ public abstract class PlayerAction : MonoBehaviour
         return (ableToBlink, previousBlink);
     }
 
-    protected int GetAccuracy(double timeStamp, int inputIndex)
+    protected int GetAccuracy(double timeStamp, int inputIndex, List<int> laneNumsChoice, string direction)
     {
         if (Math.Abs(AudioTime - (timeStamp)) < PerfectMarginOfError)
         {
             //Perfect
             Hit();
+            if (enableArrows){
+                arrowBlink(inputIndex, perfectColor, laneNumsChoice, direction, true);
+            }
             print($"Hit on {inputIndex} note - time: {timeStamp} audio time {AudioTime}");
             inputIndex++;
         }
@@ -59,50 +71,45 @@ public abstract class PlayerAction : MonoBehaviour
         {
             //Nice
             Inaccurate();
+            if (enableArrows){
+                arrowBlink(inputIndex, niceColor, laneNumsChoice, direction, true);
+            }
             print(
                 $"Hit inaccurate on {inputIndex} note with {Math.Abs(AudioTime - timeStamp)} delay - time: {timeStamp} audio time {AudioTime}");
             inputIndex++;
         }
-        else{
+        else if(Math.Abs(AudioTime - timeStamp) < BeforeNotePadding)
+        {
             //Oops
             Miss();
             print($"Missed {inputIndex} note - time: {timeStamp} audio time {AudioTime}");
 
-            if(AudioTime - timeStamp > NiceMarginOfError){
+            if(AudioTime - timeStamp > NiceMarginOfError){ //After the note has passed
+                if (enableArrows){
+                    arrowBlink(inputIndex, missColor, laneNumsChoice, direction, true);
+                }
                 inputIndex++;
+            }else{ //before the note has passed
+                if (enableArrows){
+                    arrowBlink(inputIndex, missColor, laneNumsChoice, direction, false);
+                }
             }
         }
         return inputIndex;
     }
 
-    protected List<double> AddNoteToTimeStamp(Note curNote, Melanchall.DryWetMidi.MusicTheory.NoteName curNoteRestriction,
-        List<double> curTimeStamps, Lane[] lanes, string direction){
-        if (curNote.Octave == 1 && curNote.NoteName == curNoteRestriction)
-        {
-            var metricTimeSpan =
-                TimeConverter.ConvertTo<MetricTimeSpan>(curNote.Time, MusicPlayer.Current.MidiFileTest.GetTempoMap());
-            var spawnTime = (double)metricTimeSpan.Minutes * 60f + metricTimeSpan.Seconds +
-                                (double)metricTimeSpan.Milliseconds / 1000f;
+    protected abstract List<double> AddNoteToTimeStamp(Note curNote, Melanchall.DryWetMidi.MusicTheory.NoteName curNoteRestriction,
+        List<double> curTimeStamps, Lane[] lanes, string direction);
 
-            curTimeStamps.Add(spawnTime - prespawnWarningSeconds);
-            if (enableArrows)
-            {
-                var velocityAsInt = Convert.ToInt32(curNote.Velocity);
-                var lane = velocityAsInt % 10 - 1;
-                var heightLevel = velocityAsInt / 10 % 10;
-                var oneEighthofBeat = 1 / (MusicPlayer.Current.bpm / 60f) / 2;
-                lanes[lane].SpawnArrow((float)spawnTime, heightLevel, direction, oneEighthofBeat);
-            }
-        }
-        return curTimeStamps;
-    }
-
-    protected int CheckMiss(int inputIndex, double curTimeStamp) {
+    protected int CheckMiss(int inputIndex, double curTimeStamp, List<int> laneNumsChoice, string direction) {
 
         if (curTimeStamp + NiceMarginOfError <= AudioTime)
         {
             Miss();
             print($"Missed {inputIndex} note - time: {curTimeStamp} audio time {AudioTime}");
+            if (enableArrows){
+                arrowBlink(inputIndex, missColor, laneNumsChoice, direction, true);
+            }
             inputIndex++;
         }
         return inputIndex;
@@ -126,6 +133,11 @@ public abstract class PlayerAction : MonoBehaviour
     private void Blink(Color blinkColor)
     {
         PlatformManager.current.InvokeBlink(blinkColor);
+    }
+
+    private void arrowBlink(int inputIndex, Color blinkColor, List<int> laneNumsChoice, string direction, bool increment)
+    {
+        StartCoroutine(allLanes[laneNumsChoice[inputIndex]].ArrowBlinkDelay(blinkColor, direction, increment));
     }
 
     public abstract void TriggerScoreCalculation(InputAction.CallbackContext context);

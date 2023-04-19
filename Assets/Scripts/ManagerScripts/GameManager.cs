@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
         {
             RestartLevelOrNextLevelOrMainMenu();
         }
+        if (Input.GetButton("Back") && _gameHasEnded)
+        {
+            StartCoroutine(WaitThenBackToMainMenu());
+        }
     }
 
     private void NextLevel()
@@ -51,7 +55,6 @@ public class GameManager : MonoBehaviour
 
     public void LostLevel() {
         gameIsEnding = false;
-        PlayerMovement.Current.walkingSound.Stop();
         MusicPlayer.Current.audioSource.Pause();
         gameOverSound.Play();
         _playerMovement.enabled = false;
@@ -112,6 +115,14 @@ public class GameManager : MonoBehaviour
         if (context.performed && _gameHasEnded)
         {
             RestartLevelOrNextLevelOrMainMenu();
+        }
+    }
+
+    public void ExitLevel(InputAction.CallbackContext context)
+    {
+        if (context.performed && _gameHasEnded)
+        {
+            StartCoroutine(WaitThenBackToMainMenu());
         }
     }
 

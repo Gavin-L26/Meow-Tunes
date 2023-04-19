@@ -23,8 +23,6 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource landFromJumpSound;
     private bool _justLanded;
 
-    public AudioSource walkingSound;
-
     [Header("Movement")]
     public float sidewayWalkSpeed;
     public float forwardWalkSpeed;
@@ -40,9 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float maxJumpForce;
     public float jumpCooldown;
-    // public float airMultiplier;
     private bool _readyToJump;
-    //private bool _canDoubleJump;
     private bool _readyToStomp;
     private bool _canSaveJump;
     public float stompForce = 3f;
@@ -50,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _hitFish;
     private bool _ateFish;
     private Collider _fishtreatCollider;
+
+    public ParticleSystem particleSystem;
 
     [Header("Movement Animation")]
     public Animator animator;
@@ -59,15 +57,6 @@ public class PlayerMovement : MonoBehaviour
     public float playerWidth;
     private bool _grounded;
 
-    [Header("Slope Handling")]
-    public float maxSlopeAngle;
-    private RaycastHit _slopeHit;
-    // private bool _exitingSlope;
-    
-    private float _horizontalInput;
-    private float _verticalInput;
-
-    private Vector3 _moveDirection;
     private Rigidbody _rb;
 
     public MovementState state;
@@ -129,9 +118,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 return;
             }
-
-            if (_rb.velocity.magnitude > 1 && _grounded && !walkingSound.isPlaying) walkingSound.Play();
-            if (_rb.velocity.magnitude <= 0 || !_grounded || GameManager.Current.HasGameEnded()) walkingSound.Stop();
         }
     }
 
@@ -164,10 +150,6 @@ public class PlayerMovement : MonoBehaviour
                     _rb.transform.position = newPos;
                     _movingSideway = false;
                     
-                    //may be used to solve jump-while-moving-sideway-bug
-                    // if (!_readyToJump && _rb.velocity.y > 0){
-                    //     _rb.AddForce(transform.up * _rb.velocity.y*2, ForceMode.Impulse);
-                    // }
                 }
             }
             //Stomping
@@ -299,6 +281,13 @@ public class PlayerMovement : MonoBehaviour
                 _ateFish = true;
                 _fishtreatCollider.gameObject.GetComponent<FishHit>().HideFishTreat();
 
+                UnityEngine.Debug.Log("particles");
+
+                // Activate eat particle effect
+                particleSystem.Play();
+                //ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
+                //em.enabled = true;
+
                 ScoreManager.current.UpdateFishScore(1);
             }
         }
@@ -326,25 +315,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        // calculate movement direction
-        // _moveDirection = new Vector3(0, 0, 0);
-
-        // on slope and not jumping
-        // if(OnSlope() && !_exitingSlope)
-        // {
-        //     _rb.AddForce(GetSlopeMoveDirection() * (_moveSpeed * 20f), ForceMode.Force);
-
-        //     //Prevents weird jumping motion due to no gravity on slope
-        //     if(_rb.velocity.y > 0){
-        //         _rb.AddForce(Vector3.down * 80f, ForceMode.Force);
-        //     }
-        // }
         
         //Add some additional gravity to not make the control floaty
         _rb.AddForce(Vector3.down * (jumpingGravity * _rb.mass));
-        
-        //Turn off Gravity when on slope to avoid unwanted sliding
-        // _rb.useGravity = !OnSlope();
 
         Vector3 velocity = _rb.velocity;
         velocity.z = forwardWalkSpeed;
@@ -359,7 +332,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        // _exitingSlope = true;
         // reset y velocity
         var velocity = new Vector3(0f, 0f, 0f);
         _rb.velocity = velocity;
@@ -368,7 +340,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void HalfJump()
     {
-        // _exitingSlope = true;
         
         // reset y velocity
         var velocity = _rb.velocity;
@@ -381,7 +352,6 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         _readyToJump = true;
-        // _exitingSlope = false;
         _justLanded = true;
         _canSaveJump = true;
     }
@@ -400,29 +370,5 @@ public class PlayerMovement : MonoBehaviour
     {
         _playerInputEnabled = enable;
     }
-
-    // private bool OnSlope()
-    // {   
-    //     //Possible Extension: Check going up or down slope to change speed base on that
-
-    //     //Increase the length of the ray a bit to make sure we are hitting the slope 
-    //     // (may need to change based on ramp slope)
-    //     const float rayExtension = 0.3f;
-
-    //     // slopeHit stores the information of the object the ray hits
-    //     if(Physics.Raycast(transform.position, Vector3.down, out _slopeHit, playerHeight * 0.5f + rayExtension))
-    //     {
-    //         var angle = Vector3.Angle(Vector3.up, _slopeHit.normal);
-    //         return angle < maxSlopeAngle && angle != 0;
-    //     }
-
-    //     return false;
-    // }
-
-    // private Vector3 GetSlopeMoveDirection()
-    // {
-    //     //Project the move direction to the slope so that we are not moving into or away from the slope
-    //     return Vector3.ProjectOnPlane(_moveDirection, _slopeHit.normal).normalized;
-    // }
 
 }
