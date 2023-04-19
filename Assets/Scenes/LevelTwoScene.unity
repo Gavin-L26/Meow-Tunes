@@ -3758,10 +3758,10 @@ MonoBehaviour:
   InputIndex: 0
   prespawnWarningSeconds: 0
   TimeStamp: 0
-  enableBlink: 1
-  enableArrows: 0
-  perfectColor: {r: 0, g: 1, b: 0, a: 1}
-  niceColor: {r: 1, g: 1, b: 0, a: 1}
+  enableBlink: 0
+  enableArrows: 1
+  perfectColor: {r: 0, g: 0.7647059, b: 0.11764706, a: 1}
+  niceColor: {r: 1, g: 0.8509804, b: 0.16470589, a: 1}
   missColor: {r: 1, g: 0, b: 0, a: 1}
   blinkColor: {r: 0.24313726, g: 0.7647059, b: 0.41568628, a: 0}
 --- !u!1001 &170498618
@@ -7308,7 +7308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1067746485611210755, guid: c24b3dd7804a34438a5409311918549c, type: 3}
       propertyPath: midiFileName
-      value: EDM_V7.mid
+      value: EDM.mid
       objectReference: {fileID: 0}
     - target: {fileID: 1067746485611210755, guid: c24b3dd7804a34438a5409311918549c, type: 3}
       propertyPath: songLoopFast
@@ -13882,10 +13882,10 @@ MonoBehaviour:
   InputIndex: 0
   prespawnWarningSeconds: 0
   TimeStamp: 0
-  enableBlink: 1
-  enableArrows: 0
-  perfectColor: {r: 0, g: 1, b: 0, a: 1}
-  niceColor: {r: 1, g: 1, b: 0, a: 1}
+  enableBlink: 0
+  enableArrows: 1
+  perfectColor: {r: 0, g: 0.7647059, b: 0.11764706, a: 1}
+  niceColor: {r: 1, g: 0.8509804, b: 0.16470589, a: 1}
   missColor: {r: 1, g: 0, b: 0, a: 1}
   blinkColor: {r: 0.8113208, g: 0.17221434, b: 0.17221434, a: 0}
 --- !u!1001 &759435903
@@ -15248,10 +15248,10 @@ MonoBehaviour:
   InputIndex: 0
   prespawnWarningSeconds: 0
   TimeStamp: 0
-  enableBlink: 1
-  enableArrows: 0
-  perfectColor: {r: 0, g: 1, b: 0, a: 1}
-  niceColor: {r: 1, g: 1, b: 0, a: 1}
+  enableBlink: 0
+  enableArrows: 1
+  perfectColor: {r: 0, g: 0.7647059, b: 0.11764706, a: 1}
+  niceColor: {r: 1, g: 0.8509804, b: 0.16470589, a: 1}
   missColor: {r: 1, g: 0, b: 0, a: 1}
   noteRestrictionRight: 1
   timeStampsRight: []
