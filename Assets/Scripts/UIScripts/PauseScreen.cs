@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PauseScreen : MonoBehaviour
 {
-    public GameObject pauseMenuUI, settingsMenuUI;
+    public GameObject pauseMenuUI, settingsMenuUI, controllerUI;
     public MusicPlayer musicPlayer;
     public GameObject playerMovement;
     private PlayerMovement _playerMovementScript;
@@ -40,6 +40,7 @@ public class PauseScreen : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         settingsMenuUI.SetActive(false);
+        controllerUI.SetActive(false);
         CountdownManager.Current.SetCountdown(5f);
         StartCoroutine(ResumeAfterCountdown());
     }
@@ -121,17 +122,24 @@ public class PauseScreen : MonoBehaviour
         _playerMovementScript.enabled = true;
     }
 
-    private void ResumeOrExitSettings()
+    public void ResumeOrExitSettings()
     {
         if (!GameManager.Current.IsGamePaused() || GameManager.Current.HasGameEnded() || CountdownManager.Current.countingDown) return;
-        if (GameManager.Current.IsGamePaused() && !settingsMenuUI.activeInHierarchy)
+        if (GameManager.Current.IsGamePaused() && !settingsMenuUI.activeInHierarchy && !controllerUI.activeInHierarchy)
         {
             Resume();
         } else if (GameManager.Current.IsGamePaused() && settingsMenuUI.activeInHierarchy)
         {
             SettingsMenu.current.BackToMainMenuOrPauseScreen();
             settingsMenuUI.SetActive(false);
+            controllerUI.SetActive(false);
             pauseMenuUI.SetActive(true);
+        } else if (GameManager.Current.IsGamePaused() && controllerUI.activeInHierarchy)
+        {
+            SettingsMenu.current.BackToMainMenuOrPauseScreen();
+            controllerUI.SetActive(false);
+            settingsMenuUI.SetActive(true);
+            pauseMenuUI.SetActive(false);
         }
     }
 

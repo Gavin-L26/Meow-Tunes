@@ -25067,6 +25067,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007680632}
   m_Mesh: {fileID: -7509399623989046769, guid: 429b8e8d2c8bf4af1ae70ee232c7b789, type: 3}
+--- !u!1 &1010671461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7712564531165661884, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
+  m_PrefabInstance: {fileID: 7712564532753693568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1011809394
 GameObject:
   m_ObjectHideFlags: 0
@@ -26095,6 +26100,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048922400}
   m_Mesh: {fileID: -5559284734394017692, guid: 8a33576008e534818a3bf9aeb8eed56b, type: 3}
+--- !u!198 &1050340487 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7609965094261868719, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
+  m_PrefabInstance: {fileID: 927319370}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1051927285
 GameObject:
   m_ObjectHideFlags: 0
@@ -42527,6 +42537,7 @@ MonoBehaviour:
   jumpCooldown: 0
   stompForce: 20
   jumpingGravity: 16
+  particleSystem: {fileID: 1050340487}
   animator: {fileID: 0}
   playerHeight: 2
   playerWidth: 2
@@ -48826,6 +48837,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1316515969}
     - target: {fileID: 7712564531989505938, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
+      propertyPath: controllerUI
+      value: 
+      objectReference: {fileID: 1010671461}
+    - target: {fileID: 7712564531989505938, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1828724611}
@@ -48887,7 +48902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7712564532858648094, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -4.028137
+      value: -4.028076
       objectReference: {fileID: 0}
     - target: {fileID: 7712564532973872025, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
       propertyPath: m_IsActive
@@ -48899,7 +48914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7712564532988540200, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -4.028076
+      value: -4.028015
       objectReference: {fileID: 0}
     - target: {fileID: 7712564533029155772, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
       propertyPath: m_AnchorMax.x
@@ -48931,6 +48946,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7712564533085108726, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712564533085108726, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7712564533227012477, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}

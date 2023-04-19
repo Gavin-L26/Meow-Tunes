@@ -4809,6 +4809,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1316515969}
     - target: {fileID: 7712564531989505938, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
+      propertyPath: controllerUI
+      value: 
+      objectReference: {fileID: 1562541853}
+    - target: {fileID: 7712564531989505938, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1828724611}
@@ -17700,6 +17704,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5675749665967326835, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
+--- !u!198 &927319371 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7609965094261868719, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
+  m_PrefabInstance: {fileID: 927319370}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &927319373 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8033697961162981974, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
@@ -27170,6 +27179,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561800894}
   m_CullTransparentMesh: 1
+--- !u!1 &1562541853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7712564531165661884, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
+  m_PrefabInstance: {fileID: 210006395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1563533516
 GameObject:
   m_ObjectHideFlags: 0
@@ -30849,6 +30863,7 @@ MonoBehaviour:
   jumpCooldown: 0
   stompForce: 9
   jumpingGravity: 40
+  particleSystem: {fileID: 927319371}
   animator: {fileID: 0}
   playerHeight: 2
   playerWidth: 2

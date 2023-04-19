@@ -10366,6 +10366,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497884120}
   m_Mesh: {fileID: -7509399623989046769, guid: 429b8e8d2c8bf4af1ae70ee232c7b789, type: 3}
+--- !u!1 &499428091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7712564531165661884, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
+  m_PrefabInstance: {fileID: 1976071766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &502785734
 GameObject:
   m_ObjectHideFlags: 0
@@ -20488,6 +20493,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5675749665967326835, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
+--- !u!198 &927319371 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7609965094261868719, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
+  m_PrefabInstance: {fileID: 927319370}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &927319373 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8033697961162981974, guid: 14f4e95082e50b24dbfc557f45ac129c, type: 3}
@@ -38700,6 +38710,7 @@ MonoBehaviour:
   jumpCooldown: 0
   stompForce: 9
   jumpingGravity: 30
+  particleSystem: {fileID: 927319371}
   animator: {fileID: 0}
   playerHeight: 2
   playerWidth: 2
@@ -41126,6 +41137,10 @@ PrefabInstance:
       propertyPath: musicPlayer
       value: 
       objectReference: {fileID: 1714051773}
+    - target: {fileID: 7712564531989505938, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
+      propertyPath: controllerUI
+      value: 
+      objectReference: {fileID: 499428091}
     - target: {fileID: 7712564531989505938, guid: 0fc13999f4e39cd4a836f53d8b212c54, type: 3}
       propertyPath: playerMovement
       value: 
